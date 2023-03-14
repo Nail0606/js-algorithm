@@ -1,3 +1,2 @@
-//js-algorithm/step/input.txt
-
-472 385
+12
+5
