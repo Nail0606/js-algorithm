@@ -1,8 +1,7 @@
 const fs = require('fs');
-let input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-let flag = 1
+let input = fs.readFileSync("step/input.txt").toString().trim().split("\n");
 let i = 0;
-while(flag){
+while(1){
   if(input[i] === "0 0"){
     break;
   }
