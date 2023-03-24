@@ -5,3 +5,4 @@ for(let i=1; i<=input; i++){
   total += i;
 }
 console.log(total);
+
