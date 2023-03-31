@@ -1,6 +1,15 @@
 const fs = require('fs');
 let input;
-input = fs.readFileSync("dev/stdin").toString().trim().split("\n");
+try{
+  input = fs.readFileSync("dev/stdin").toString().trim().split("\n");
+}catch{
+  input = `5 4
+1 2
+3 4
+1 4
+2 2`.trim().split("\n");
+}
+
 let N = parseInt(input[0].split(" ")[0]);
 let M = parseInt(input[0].split(" ")[1]);
 let basket = [];
@@ -20,4 +29,4 @@ for(let i=0; i< M; i++){
   basket[ballB -1] = temp;
 }
 let answer = basket.join(" ");
-console.log(answer)
+console.log(answer);
