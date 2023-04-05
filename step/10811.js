@@ -1,26 +1,29 @@
-const fs = require('fs');
+const fs = require("fs");
 let input;
-try{
+try {
   input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-}catch{
+} catch {
   input = `5 4
 1 2
 3 4
 1 4
-2 2`.toString().trim().split("\n");
+2 2`
+    .toString()
+    .trim()
+    .split("\n");
 }
-let N = +(input[0].split(" ")[0]);
-let M = +(input[0].split(" ")[1]);
+let N = +input[0].split(" ")[0];
+let M = +input[0].split(" ")[1];
 let arr = [];
-for(let i = 0; i< N; i++){
+for (let i = 0; i < N; i++) {
   arr[i] = i + 1;
 }
-for(let i = 0; i < M; i++){
-  let I = +(input[i + 1].split(" ")[0]);
-  let J = +(input[i + 1].split(" ")[1]);
-  let range = arr.slice(I -1 ,J).reverse();
-  arr.splice(I -1, range.length, ...range);
-  
+
+for (let i = 0; i < M; i++) {
+  let I = +input[i + 1].split(" ")[0];
+  let J = +input[i + 1].split(" ")[1];
+  let reverseArray = arr.slice(I - 1, J).reverse();
+  arr.splice(I - 1, reverseArray.length, ...reverseArray);
 }
-let answer = arr.join(" ");
-console.log(answer);
+arr = arr.join(" ");
+console.log(arr);
