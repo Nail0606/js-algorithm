@@ -16,12 +16,12 @@ try {
 let C = +input[0];
 for (let i = 1; i <= C; i++) {
   let studentCount = input[i].split(" ")[0];
-  let arr = input[i].split(" ");
-  let shift = arr.shift();
-  let arr2 = arr.map((n) => +n);
-  let sum = arr2.reduce((a, b) => a + b);
+  let studentScoreArrayString = input[i].split(" ");
+  studentScoreArrayString.shift();
+  let studentScoreArray = studentScoreArrayString.map((n) => +n);
+  let sum = studentScoreArray.reduce((a, b) => a + b);
   let avg = sum / studentCount;
-  let arr3 = arr2.filter((n) => n > avg);
-  let answer = parseFloat(arr3.length / studentCount);
+  let overScore = studentScoreArray.filter((n) => n > avg);
+  let answer = parseFloat(overScore.length / studentCount);
   console.log((answer * 100).toFixed(3) + "%");
 }
