@@ -2,37 +2,33 @@ const fs = require("fs");
 let input;
 try {
   input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-} catch (error) {
-  input = `3
-happy
-new
-year`
+} catch {
+  input = `1
+aaa`
     .trim()
     .split("\n");
 }
-const caseCount = Number(input[0]);
-let countGroupWord = 0;
 
-for (let i = 1; i <= caseCount; i++) {
-  const word = input[i];
-  const letter = [];
+let count = Number(input[0]);
+let groupWordCount = 0;
+
+for (let i = 1; i <= count; i++) {
+  let targetSentense = input[i];
   let isGroupWord = true;
+  let array = [];
 
-  for (let j = 0; j < word.length; j++) {
-    if (letter.indexOf(word[j]) === -1) {
-      letter.push(word[j]);
-      console.log(letter);
+  for (let j = 0; j < targetSentense.length; j++) {
+    if (array.indexOf(targetSentense[j]) === -1) {
+      array.push(targetSentense[j]);
     } else {
-      if (letter.indexOf(word[j]) !== letter.length - 1) {
+      if (array.indexOf(targetSentense[j]) !== array.length - 1) {
         isGroupWord = false;
         break;
       }
     }
   }
-
-  if (isGroupWord) {
-    countGroupWord += 1;
+  if (isGroupWord === true) {
+    groupWordCount++;
   }
 }
-
-console.log(countGroupWord);
+console.log(groupWordCount);
